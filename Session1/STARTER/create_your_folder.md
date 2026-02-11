@@ -1,4 +1,4 @@
-## simply create your own folder under Session1:
+## 1.2.1 Simply create your own folder under Session1:
 
 1. copy STARTER folder
 2. paste it under Session1 folder
