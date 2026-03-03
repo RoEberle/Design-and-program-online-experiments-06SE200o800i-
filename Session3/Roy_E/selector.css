@@ -39,3 +39,12 @@ head,body {
     color: rgb(255, 31, 31);
     font-weight: bold;
 }
+
+.exit-button {
+    font-weight: bolder;
+    font-size: 18pt;
+    background-color: rgb(211, 211, 211);
+    color: red;
+    border-width: 3pt;
+    border: 3pt;
+}

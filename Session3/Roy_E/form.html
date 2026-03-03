@@ -17,10 +17,10 @@
 
       <!--3.2.1 Create inputs to ask participants for some personal information, like ID (as text input; placehoder text as ABC123), age (as number input, add min = 18 and max = 35 input)-->
       <p>1. ID: <span class="highlight-red">*</span></p>
-      <input type="text" required>
+      <input type="text" required placeholder="Participant-ID">
       
       <p>2. Age: <span class="highlight-red">*</span></p>
-        <input type="number" required min="1" max="100" placeholder="18">
+        <input type="number" required min="18" max="35" placeholder="18">
 
       <!--3.2.2 Add drop-down more options (Non-Binary) for gender information-->
         <p>3. Gender <span class="highlight-red">*</span>:</p>
@@ -83,8 +83,10 @@
       </div>
         
       <!-- 3.2.5 change the color of 'Submit To Continue' to blue externally using id; and change the background-color of all class="final" to beige-->
-      <input id="submit_button" type="button" value="Submit To Continue" class="final">
-  
+      <input id="submit_button" type="button" value="Submit To Continue" class="final"> 
+      <br><br>
+
+      <button class="exit-button">Exit</button>
 
       <!-- # plus 1: make personal information inputs (ID, age, gender) mandatory/required. -->   
       <!-- # plus 2: use inline css to make asterisk red to indicate that it is required.-->
