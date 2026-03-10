@@ -12,8 +12,8 @@ console.log(example); // ? -> 10
 
 let a = 8;
 let b = 2;
-console.log(a+b); // ?
-console.log(8**2); // ?
+console.log(a+b); // 10
+console.log(8**2); // 64
 
 
 /* 4.2.2: Equality and Strict Equality:
@@ -21,10 +21,10 @@ First, work out from what you understand by replacing the ? with your expected o
 let x = 5;
 let y = "5";
 
-console.log(x == y);  // ?
-console.log(x === y); // ?
-console.log(x != y);  // ?
-console.log(x !== y); // ?
+console.log(x == y);  // FALSE
+console.log(x === y); // FALSE
+console.log(x != y);  // TRUE
+console.log(x !== y); // TRUE
 
 
 /* 4.2.3: logical operators:
@@ -32,14 +32,14 @@ First, work out from what you understand by replacing the ? with your expected o
 let isAdult = true;
 let hasNormalVision = false;
 
-console.log(isAdult && hasNormalVision); // ?
-console.log(isAdult || hasNormalVision); // ?
+console.log(isAdult && hasNormalVision); // FALSE
+console.log(isAdult || hasNormalVision); // TRUE
 
 let score = 50;
 
-console.log(score > 40 && score < 60);  // ?
-console.log(score * 2 === 100);         // ?
-console.log(score % 2 === 0 || score < 0); // ?
+console.log(score > 40 && score < 60);  // TRUE
+console.log(score * 2 === 100);         // TRUE
+console.log(score % 2 === 0 || score < 0); // TRUE
 
 
 /* 4.2.4: what this newFunction will return:  
@@ -50,7 +50,7 @@ function newFunction(a,b) {
     return { a, b, c};
 }
 let myResults = newFunction(1, 3);
-console.log("my results:", myResults); // ?
+console.log("my results:", myResults); // My results: 4 3 [1, 3]
 
 /* 4.2.5: Verify your answers by running the JavaScript script in operator.html. Open the browser's developer console and check the logged output. Compare the results with the expected answers from the previous steps. */
 
@@ -58,19 +58,35 @@ console.log("my results:", myResults); // ?
 /* 4.2.6: 
 YOUR TASK is to use a conditional statement (e.g., if-else) or a conditional operator (e.g., ternary operator) to evaluate the participant's age.
 
+
 If the age is between 18 and 35 (inclusive), log the following message to the console:
 "The current participant's age is, X, within 18-35; Participant is eligible for the experiment", where X is the participant's age, e.g., 17.
+
 
 If the age is outside this range, display an alert() with the message:
 "Participant is not eligible for the experiment due to age!". 
 */
 
+function ageEligibility(age) {
+    if (age >= 18 && age <= 35) {
+        console.log(`The current participant's age is, ${age}, within 18-35; Participant is eligible for the experiment`);
+    } else {
+        alert("Participant is not eligible for the experiment due to age!");
+    }
+}
+
 // First try when age = 25 
 let age = 25;
 console.log("Try age =", age);
 
-// Then try when age = 17
+console.log(ageEligibility(age));
 
+
+// Then try when age = 17
+age = 17;
+console.log("Try age =", age);
+
+ageEligibility(age)
 
 /* # plus 1:  In JavaScript, certain operations (like arithmetic operations) can implicitly convert values from one type to another.
 First, work out from what you understand by replacing the ? with your expected outcome;
@@ -78,8 +94,8 @@ Then, uncomment two console.log()lines to check your answers.
 */
 let value = "5";
 let result = value * 2;
-// console.log(result);        // ?
-// console.log(typeof result); // ?
+console.log(result);        // 10
+console.log(typeof result); // number
 // When a string is used in an arithmetic operation, JavaScript attempts to convert it into a number.
 
 /* # Plus 2: Arithmetic Operation, Type Coercion and Strict Equality 
@@ -95,9 +111,11 @@ let totalPoints = points + bonus;
 let isEqual = totalPoints == 105;  
 let isStrictEqual = totalPoints === 105; 
 
-// console.log(totalPoints);   // ?
-// console.log(isEqual);       // ?
-// console.log(isStrictEqual); // ?
+console.log(totalPoints);   // "105"
+console.log(isEqual);       // TRUE
+console.log(isStrictEqual); // FALSE
+console.log(typeof totalPoints); // string
+
 
 
 /* Plus 3: 
@@ -121,29 +139,36 @@ YOUR TASK is to:
     let hasCognitiveImpairment = false;
 */
 
+/*
     let ageInput = 25; // or 17                                         
     let hasParticipatedBefore = false; // or True
     let hasNormalVisionOrNot = true;
     let hasCognitiveImpairment = false;
     console.log("age:", ageInput, "participated before?", hasParticipatedBefore, "normal vision:",hasNormalVisionOrNot, "cognitive impairment:",hasCognitiveImpairment)
     // will this be eligible?
-
+    
     ageInput = 17;                                         
     hasParticipatedBefore = false; // or True
     hasNormalVisionOrNot = true;
     hasCognitiveImpairment = false;
     console.log("age:", ageInput, "participated before?", hasParticipatedBefore, "normal vision:",hasNormalVisionOrNot, "cognitive impairment:",hasCognitiveImpairment)
     // will this be eligible?
-
+    
     ageInput = 25;                                         
     hasParticipatedBefore = true; 
     hasNormalVisionOrNot = true;
     hasCognitiveImpairment = false;
     console.log("age:", ageInput, "participated before?", hasParticipatedBefore, "normal vision:",hasNormalVisionOrNot, "cognitive impairment:",hasCognitiveImpairment)
     // will this be eligible?
+    
+    ageInput = 25;                                         
+    hasParticipatedBefore = false; 
+    hasNormalVisionOrNot = true;
+    hasCognitiveImpairment = false;
+    console.log("age:", ageInput, "participated before?", hasParticipatedBefore, "normal vision:",hasNormalVisionOrNot, "cognitive impairment:",hasCognitiveImpairment)
+    // will this be eligible?
 
-
-
+    */
 
 
 
