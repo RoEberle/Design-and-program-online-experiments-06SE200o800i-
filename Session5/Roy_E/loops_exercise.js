@@ -8,17 +8,25 @@
  
  // Using a for loop, to get the data only stores your reaction time
  // console.log each iterate index and each reactionTime value accordingly in the loop
- let reactionTimes = [];
+ 
  // add your code here
 
+for (const [i, reactionTimes] of recordedTimes.entries()) {
+    console.log(`${i}:`, reactionTimes-200)
+}
 
- console.log("reactionTimes: ",reactionTimes);
+ //console.log("reactionTimes: ",reactionTimes);
+
 
 
  
  /* # Plus 1: can you think of more than one way of doing it? */
- 
- 
+  let reactionTimes = [];
+ for(let i= 0;i<10;i++){
+    reactionTimes[i]=recordedTimes[i]-200;
+    console.log(`${i}:`, reactionTimes[i])
+ }
+    
  
  
  
