@@ -58,3 +58,18 @@ console.log(`avgTime is: ${avgTime}`)
 
 */
 
+const getPerformanceFeedback = (reaction_time) => {
+  let RT = reaction_time;
+  if(RT < 200){
+    return `Excellent`
+  } else if (RT >= 200 && RT <= 500){
+    return `Good`
+  } else {
+    return `Needs Improvement`
+  }
+}
+
+
+console.log(`${getPerformanceFeedback(100)}`)
+console.log(`${getPerformanceFeedback(350)}`)
+console.log(`${getPerformanceFeedback(510)}`)
