@@ -21,7 +21,7 @@ for (const [i, reactionTimes] of recordedTimes.entries()) {
 
  
  /* # Plus 1: can you think of more than one way of doing it? */
-  let reactionTimes = [];
+let reactionTimes = [];
  for(let i= 0;i<10;i++){
     reactionTimes[i]=recordedTimes[i]-200;
     console.log(`${i}:`, reactionTimes[i])
