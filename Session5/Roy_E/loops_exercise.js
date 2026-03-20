@@ -28,7 +28,7 @@ let reactionTimes = [];
  }
     
  
- 
+
  
  
  /* exercise 5.2.2 */
@@ -42,7 +42,11 @@ let thisTrial;
 let j = 0
 
 
-
+while(totalTime<=2000){
+    totalTime += recordedTimes[j]-200
+    thisTrial = 1+j++;
+    console.log(`total RT: ${totalTime} ms at trial Nr. ${thisTrial}`)   
+}
 
 
 
