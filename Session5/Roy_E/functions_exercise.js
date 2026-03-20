@@ -6,13 +6,17 @@
 const threshold = 300; 
 function isFasterThanThreshold(responseTime) {
     // Write logic to check if the reaction time is faster than the threshold
-
+    if (responseTime < threshold) {
+      return `too fast`
+    } else {
+      return `valid`
+    }
   }
   
 // Call the function with different inputs
-console.log(`Expected output: ${isFasterThanThreshold(200)}`)
+console.log(`Expected output: RT is ${isFasterThanThreshold(200)}`)
 // Expected output: "too fast"
-console.log(`Expected output: ${isFasterThanThreshold(400)}`)
+console.log(`Expected output: RT is ${isFasterThanThreshold(400)}`)
 // Expected output: "valid"
   
 /* exercise 5.2.4 */
@@ -21,13 +25,27 @@ console.log(`Expected output: ${isFasterThanThreshold(400)}`)
 // called the function e.g., calculateAverageRT(responseTimes); .
 
 // Write your function here
+function calculateAverageRT(RTs){
+  let i = 0
+  let RT = 0;
+  while(i<RTs.length){
+  RT += RTs[i];
+  i++;
+  }
+  return RT / RTs.length;
+};
 
+let RTs = [345, 684, 234, 500];
+
+const avgTime = calculateAverageRT(RTs);
+
+console.log(`avgTime is: ${avgTime}`)
 
 
   // Example input
-  let responseTimes = [100, 200, 300, 400, 500,600];
-  const avgTime = calculateAverageRT(responseTimes); 
-  console.log("Expected avgTime:",avgTime );
+  // let responseTimes = [100, 200, 300, 400, 500,600];
+  // const avgTime = calculateAverageRT(responseTimes); 
+  // console.log("Expected avgTime:",avgTime );
   // Expected avgTime: 350
 
    /* # Plus 2 */
