@@ -29,12 +29,10 @@ const fixation = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus: "+",
     choices: "NO_KEYS",
-    trial_duration: function(){
-        Math.floor(Math.random() * 3 + 1) * 1000
-    }
+    trial_duration: Math.floor(Math.random() * 3 + 1) * 1000
 }
 timeline.push(fixation);
-
+console.log(fixation.trial_duration)
 
 const drawBunnyfn = function (canvas){
     
