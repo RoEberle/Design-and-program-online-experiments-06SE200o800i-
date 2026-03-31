@@ -97,15 +97,56 @@ const drawBunnyfn = function (canvas){
 
 }
 
+const smile = function (c){
+    const ctx = c.getContext('2d');
+    // face
+    ctx.beginPath();
+    ctx.arc(250, 300, 100, 0, 2 * Math.PI);
+    ctx.fillStyle = 'yellow';
+    ctx.fill();
+    ctx.strokeStyle = 'black';
+    ctx.stroke();
+    //left exe
+    ctx.beginPath();
+    ctx.arc(220, 270, 20, 0, 2 * Math.PI);
+    ctx.fillStyle = 'black';
+    ctx.fill();
+    ctx.strokeStyle = 'black';
+    ctx.stroke();
+    // right eye
+    ctx.beginPath();
+    ctx.arc(280, 270, 20, 0, 2 * Math.PI);
+    ctx.fillStyle = 'black';
+    ctx.fill();
+    ctx.strokeStyle = 'black';
+    ctx.stroke();
+    //mouth
+    ctx.beginPath();
+    ctx.moveTo(200, 320);
+    ctx.quadraticCurveTo(250, 350, 300, 320);
+    ctx.strokeStyle = 'black';
+    ctx.stroke();
+    linewidth = 5;
+}
 const drawBunnyTrial = {
     type: jsPsychCanvasKeyboardResponse,
     canvas_size: [600,600],
     stimulus: drawBunnyfn,
     prompt: 'This is a bunny. Wait for 5 seconds and admire it!',
-    choics: 'NO_KEYS',
+    choices: 'NO_KEYS',
     trial_duration: 5000
 }
 timeline.push(drawBunnyTrial);
+
+const smiley = {
+    type: jsPsychCanvasKeyboardResponse,
+    canvas_size: [600,600],
+    stimulus: smile,
+    choices: 'NO_KEYS',
+    trial_duration: 3000
+}
+
+timeline.push(smiley);
 
 const end = {
     type: jsPsychHtmlKeyboardResponse,
