@@ -32,7 +32,7 @@ const fixation = {
     trial_duration: Math.floor(Math.random() * 3 + 1) * 1000
 }
 timeline.push(fixation);
-console.log(fixation.trial_duration)
+console.log(`Fixation duration: ${fixation.trial_duration} ms`)
 
 const drawBunnyfn = function (canvas){
     
