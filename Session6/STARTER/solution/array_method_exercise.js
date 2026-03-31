@@ -30,6 +30,18 @@ const trials = [
 
 let correctCount = 0;
 // start add your code here
+trials.forEach(
+  (t)=>{
+
+    if(t.correct){
+    correctCount ++;
+    }
+
+  }
+
+
+)
+
 
 // your code end
 console.log("Correct answers:", correctCount);
@@ -41,7 +53,11 @@ console.log("Accuracy:", acc);
  
 
 /* plus 1: could you think of doing exercise 1 in chaining */
-
+const accuracy = trials
+  .filter(trial => trial.correct)         // Keep only correct trials
+  .map((trial) => trial.correct = 1)                            // Turn each into a 1 (for counting)
+  .reduce((accumulator, currentValue) => accumulator + currentValue, 0) / trials.length
+console.log("Accuracy :", accuracy);
 
 
  
