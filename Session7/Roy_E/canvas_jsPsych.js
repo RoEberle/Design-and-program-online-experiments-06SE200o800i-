@@ -105,6 +105,7 @@ const smile = function (c){
     ctx.fillStyle = 'yellow';
     ctx.fill();
     ctx.strokeStyle = 'black';
+    ctx.lineWidth = 10;
     ctx.stroke();
     //left exe
     ctx.beginPath();
