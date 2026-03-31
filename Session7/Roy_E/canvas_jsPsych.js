@@ -125,8 +125,8 @@ const smile = function (c){
     ctx.moveTo(200, 320);
     ctx.quadraticCurveTo(250, 350, 300, 320);
     ctx.strokeStyle = 'black';
-    ctx.stroke();
     ctx.lineWidth = 10;
+    ctx.stroke();
 }
 const drawBunnyTrial = {
     type: jsPsychCanvasKeyboardResponse,
