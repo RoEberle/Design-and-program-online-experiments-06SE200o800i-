@@ -126,7 +126,7 @@ const smile = function (c){
     ctx.quadraticCurveTo(250, 350, 300, 320);
     ctx.strokeStyle = 'black';
     ctx.stroke();
-    linewidth = 5;
+    linewidth = 10;
 }
 const drawBunnyTrial = {
     type: jsPsychCanvasKeyboardResponse,
