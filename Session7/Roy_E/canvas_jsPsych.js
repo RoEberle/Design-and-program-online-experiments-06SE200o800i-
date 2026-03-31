@@ -25,11 +25,14 @@ timeline.push(instruction);
 
 // 7.2.2 make the trial_duration randomly selected from 1s, 2s or 3s
 // fixation 
+const duration = Math.floor(Math.random() * 3 + 1) * 1000;
+
 const fixation = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus: "+",
     choices: "NO_KEYS",
-    trial_duration: Math.floor(Math.random() * 3 + 1) * 1000
+    trial_duration: duration,
+    prompt: `Duration is ${duration/1000} Seconds`
 }
 timeline.push(fixation);
 console.log(`Fixation duration: ${fixation.trial_duration} ms`)
