@@ -25,7 +25,17 @@
   <script>
 
     /* initialize jsPsych */
-    const jsPsych = initJsPsych();
+    const jsPsych = initJsPsych({
+    on_finish: () => {
+    // Local save as JSON
+    jsPsych.data.get().localSave('csv', 'verbal_fluency_data.csv');}
+    });
+
+    // Global-level data: add participant metadata
+    jsPsych.data.addProperties({
+    participant_id: 'P001',
+    session: 1
+    });
 
     /* create timeline */
     const timeline = [];
@@ -52,7 +62,13 @@
         can say any kind of word you want, except for proper nouns (like Bob or Boston), numbers <br><br>
         The recording will stop after one minute.  <br><br> Are you ready?.</p>
       `,
-      choices: ['Yes,I am ready!']
+      choices: ['Yes,I am ready!'],
+      data: {
+        phase: 'instruction'
+      },
+      on_finish: (data) => {
+                data.speed_label = data.rt < 3000 ? 'fast' : 'slow';
+              }
     }
     timeline.push(instruction);
 
@@ -65,17 +81,34 @@ const record_verbalfluency = {
   stimulus: `
       <h1> ${randomLetter} </h1>
       <p> Say as many words containing the letter displayed above. </p>`,
-  recording_duration: 60000 
+  recording_duration: 60000,
+  data: {
+      phase: 'fluency',
+      condition: `${randomLetter}-Words`
+    },
 }
 
-
-    
     timeline.push(record_verbalfluency);
 
+  const endMessage = {
+  type: jsPsychHtmlButtonResponse,
+  stimulus: () => {
+  // Access and summarize data
+  const allData = jsPsych.data.get();
+  const nSlow = allData.filter({ speed_label: 'slow' }).count();
+  return nSlow > 0? "too slow!": "Thank you!";
+  },
+  choices: ['Finish'],
+  data: { phase: 'end' }
+  };
+  timeline.push(endMessage);
+
+
+  
     /* start the experiment */
     jsPsych.run(timeline);
     
-
+  
 
   </script>
   </body>
