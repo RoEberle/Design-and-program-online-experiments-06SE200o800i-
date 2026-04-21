@@ -77,7 +77,7 @@
                       let startTime = null;
                       let animationId = null;
                       function animate(timestamp) {
-                          console.log(fill);
+                        //   console.log(fill);
                           if (!startTime) startTime = timestamp;
                           const elapsed = timestamp - startTime;
                           const percent = Math.min((elapsed / progress_duration) * 100, 100);
