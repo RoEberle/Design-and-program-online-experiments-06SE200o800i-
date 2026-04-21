@@ -14,7 +14,7 @@
         const ballTrial = {
             type: jsPsychHtmlKeyboardResponse,
             stimulus: `
-            <canvas id="movingCanvas" width="600" height="300" style="border:1px solid black;"></canvas>
+            <canvas id="movingCanvas" width="1400" height="600" style="border:1px solid black; background-color: #e8faff" ></canvas>
             `,
             choices: "NO_KEYS",
             on_load: () => {
@@ -26,8 +26,8 @@
                 // then, pre-set the ball parameters
                 let x = 100;            // x position (pixels)
                 let y = 100;            // y position (pixels)
-                let dx = 2;             // horizontal speed (pixels per frame)
-                let dy = 2;             // vertical speed
+                let dx = 10;             // horizontal speed (pixels per frame)
+                let dy = 10;             // vertical speed
                 const radius = 20;      // ball size
 
 
@@ -39,8 +39,13 @@
                 function drawBall() {
                     // TODO: 
                     // 1. clear canvas use ctx.clearRect(0, 0, canvas.width, canvas.height)
+                    ctx.clearRect(0, 0, 1400, 600);
                     // 2. draw a red circle at (x, y) with given radius
-                    
+                    ctx.beginPath();
+                    ctx.fillStyle = "#b50b44";
+                    ctx.arc(x, y, radius, 0, 2 * Math.PI);
+                    ctx.fill();
+                    ctx.closePath();
                  
                 }
 
@@ -67,20 +72,20 @@
                 function animate(timestamp) {
                     if (!startTime) startTime = timestamp;
                     const elapsed = timestamp - startTime;
-
                     // Run for 3 seconds, then stop
-                    if (elapsed < 3000) {
-              
-
-
+                    if (elapsed < 10000) {
+                        drawBall();
+                        updatePosition();
+                        applyBouncing();
+                        animationId = requestAnimationFrame(animate);
                     } else {
                         // End animation
-                    
+                        cancelAnimationFrame(animationId);
                     }
                 }
 
                 // Start the animation
-            
+                animationId = requestAnimationFrame(animate);
 
             }
         };
