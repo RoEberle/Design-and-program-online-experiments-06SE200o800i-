@@ -96,7 +96,6 @@
 
         }
 
-
     </style>
 </head>
 <body>
@@ -180,10 +179,12 @@
                 text_0_img_1 = 1;
                 setMessage("Image mode: press SPACE for the happy image, do not press for the angry image.");
                 document.getElementById("ruleBtn").textContent = "Switch to text rule";
+                document.getElementById("ruleBtn").style.color = "red";
             } else {
                 text_0_img_1 = 0;
                 setMessage("Text mode: press SPACE for GO, do not press for NO-GO.");
                 document.getElementById("ruleBtn").textContent = "Switch to image rule";
+                document.getElementById("ruleBtn").style.color = "blue";
             }
         }
 
@@ -382,6 +383,19 @@
         }
 
         /*10.2.3 Use ⁠addEventListener() to add a keyboard shortcut: when the user presses the S key, switch between text mode and image mode */
+        document.addEventListener("keydown", function(event){
+            switch(event.key){
+                case "s":
+                    changeRule();
+                    break;
+                case "S":
+                    changeRule();
+                    break;
+                default:
+                    break;
+            };
+        }
+    )
 
     </script>
 </body>
