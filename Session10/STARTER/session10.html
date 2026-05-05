@@ -15,6 +15,38 @@
     <p>Press the R key</p>
 
     <script>
+        function startReactionTestInline() {
+            alert("inline alert 1!")
+            
+        }
+
+        document.getElementById("domBtn").onclick=function myFh(){
+            alert("alert 2!")
+        }
+
+        document.addEventListener("keydown",
+        function myevent(event){
+            console.log(`my event type: ${event.type}`)
+            console.log(`my event target: ${event.target}`)
+            console.log(`my event key: ${event.key}`)
+            console.log(`my event code: ${event.code}`)
+            if(event.key === "r"){
+                alert("alert 3");
+            }else if(event.key==="e"){
+                alert("it is not a R key")
+            }
+
+        }
+        )
+
+        document.addEventListener("click",
+        (event)=>{
+            console.log(`my event type: ${event.type}`);
+            console.log(`my event target: ${event.target}`)
+            console.log(`where: ${event.clientX} & ${event.clientY}`)
+
+        })
+
 
     </script>
 
