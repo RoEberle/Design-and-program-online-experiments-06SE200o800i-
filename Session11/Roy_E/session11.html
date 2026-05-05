@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- step 0:  Load the jsPsych library and plugins -->
+    <script src="https://unpkg.com/jspsych@8.2.3"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@2.1.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-canvas-keyboard-response@2.1.0"></script>
+    <link href="https://unpkg.com/jspsych@8.2.3/css/jspsych.css" rel="stylesheet" type="text/css" >
+
+    <title>Session 11</title>
+</head>
+<body>
+        <script>
+
+            const jsPsych = initJsPsych();
+
+            const flankerStimuli = [
+            {stimulus: `<<<<<`, direction: `left`, congruent: true},
+            {stimulus: `>>>>>`, direction: `right`, congruent: true},
+            {stimulus: `>><>>`, direction: `left`, congruent: false},
+            {stimulus: `<<><<`, direction: `right`, congruent: false},
+            ]
+            
+            const flankerTrial = {
+            type: jsPsychHtmlKeyboardResponse,
+            prompt: `Press 'f' if the central arrow points left, and 'j' otherwise.`,
+            choices: ["f", "j"],
+            stimulus: function(){
+                const stimulus = jsPsych.evaluateTimelineVariable(`stimulus`);
+                return `<p style = "font-size: 20pt">${stimulus}</p>`
+            },
+            data: function(){
+                return {
+                task: `flanker`,
+                stimulus: jsPsych.evaluateTimelineVariable(`stimulus`),
+                direction: jsPsych.evaluateTimelineVariable(`direction`),
+                congruent: jsPsych.evaluateTimelineVariable(`congruent`)
+                }
+            },
+            on_finish: function(data){
+                data.correct_key = data.direction === `left`?`f`:`j`;
+                data.correct = data.response === data.correct_key;
+            }
+            }
+
+            const repeatedStimuli = jsPsych.randomization.repeat(flankerStimuli, 5);
+
+            const flankerBlock = {
+            timeline: [flankerTrial],
+            timeline_variables: repeatedStimuli,
+            }
+
+            jsPsych.run([flankerBlock])
+    
+        </script>
+
+</body>
+</html>
